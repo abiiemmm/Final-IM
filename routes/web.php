@@ -35,5 +35,8 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 //route to database for immunization schedule
 Route::post('/schedules', [ScheduleController::class, 'store'])->name('storeSchedule');
 
-//route to success notification on adding schedule immunization
+//route to success notification on adding schedule immunization and cek schedule
 Route::get('/success', [DashboardController::class, 'success'])->name('success');
+
+Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
+Route::get('/api/schedules', [ScheduleController::class, 'index']);

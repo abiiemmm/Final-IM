@@ -40,8 +40,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  
   </div>
+  <body class="bg-gray-100 p-6">
+      <div id="app" class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h1 class="text-lg font-semibold">Immunization History</h1>
+            <a href="{{ route('schedule') }}" class="btn btn-primary">Check History</a>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script>

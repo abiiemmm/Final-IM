@@ -7,6 +7,12 @@ use App\Models\Schedule;
 
 class ScheduleController
 {
+    public function schedule()
+    {
+    $schedules = Schedule::all();
+    return view('dashboard/historyimun', ['schedules' => $schedules]);
+    }
+    
     public function store(Request $request)
     {
         // Validasi permintaan
@@ -23,5 +29,9 @@ class ScheduleController
         // Simpan data ke database
         $schedule->save();
 
+    }
+    public function schedulecek()
+    {
+        return view('dashboard/historyimun');
     }
 }
