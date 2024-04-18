@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ScheduleController;
 
 Route::view('/', 'auth.login');
 //Routing to Auth Controller #1
@@ -30,3 +31,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/information', [DashboardController::class, 'info'])->name('information');
 Route::get('/users', [DashboardController::class, 'users'])->name('users');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+//route to database for immunization schedule
+Route::post('/schedules', [ScheduleController::class, 'store'])->name('storeSchedule');
+
+//route to success notification on adding schedule immunization
+Route::get('/success', [DashboardController::class, 'success'])->name('success');
