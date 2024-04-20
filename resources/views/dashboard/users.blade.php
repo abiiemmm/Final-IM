@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Include the Daisy UI CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css" rel="stylesheet">
+    @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100 p-4">
     <div class="max-w-screen-lg mx-auto">

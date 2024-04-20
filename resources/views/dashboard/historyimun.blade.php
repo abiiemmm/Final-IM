@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riwayat Imunisasi</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100 p-6">
   <div id="app" class="container mx-auto">
@@ -13,6 +14,7 @@
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
           <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Deskripsi</th>
           </tr>
@@ -20,6 +22,7 @@
          <tbody class="bg-white divide-y divide-gray-200">
           @foreach ($schedules as $schedule)
             <tr>
+              <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->id }}</td>
               <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->schedule_date }}</td>
               <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->schedule_title }}</td>
             </tr>

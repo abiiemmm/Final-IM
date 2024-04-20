@@ -6,12 +6,13 @@
   <title>Immunization Schedule</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.3.9/dist/full.css" rel="stylesheet">
+  @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100 p-6">
   <div id="app" class="bg-white rounded-lg shadow-lg p-6">
     <div class="flex justify-between items-center mb-4">
       <h1 class="text-lg font-semibold">Immunization Schedule</h1>
-      <button @click="openModal" class="btn btn-primary">Tambah Jadwal</button>
+      <button @click="openModal" class="btn btn-primary">Add Schedule</button>
     </div>
     <div class="calendar"></div>
     <!-- Modal untuk menambahkan jadwal -->
@@ -24,7 +25,6 @@
         <div :class="{ 'inline-block': isModalOpen, 'align-top': isModalOpen, 'bg-white': isModalOpen, 'p-6': isModalOpen, 'rounded-lg': isModalOpen, 'text-left': isModalOpen, 'overflow-hidden': isModalOpen, 'shadow-xl': isModalOpen, 'transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full': isModalOpen }" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
           <div>
             <h2 class="text-lg font-semibold mb-4">Tambah Jadwal Immunisasi</h2>
-            <!-- untuk menambahkan jadwal imun-->
             <form action="{{ route('storeSchedule') }}" method="POST">
               @csrf
               <div>
@@ -33,9 +33,9 @@
               </div>
               <div>
                 <label for="scheduleTitle">Deskripsi:</label>
-                <input type="text" id="scheduleTitle" name="schedule_title">
+                 <input type="text" id="scheduleTitle" name="schedule_title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-black rounded-md">
               </div>
-              <button type="submit">Simpan</button>
+              <button type="submit" class="btn-md" >Simpan</button>
             </form>
           </div>
         </div>
@@ -46,7 +46,27 @@
       <div id="app" class="bg-white rounded-lg shadow-lg p-6">
         <div class="flex justify-between items-center mb-4">
           <h1 class="text-lg font-semibold">Immunization History</h1>
-            <a href="{{ route('schedule') }}" class="btn btn-primary">Check History</a>
+            <a href="{{ route('schedule') }}" class="btn btn-active btn-primary">Check History</a>
+        </div>
+      </div>
+    </body>
+   <body class="bg-gray-100 p-6">
+      <div id="app" class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h1 class="text-lg font-semibold">Hospitals Information</h1>
+            <a href="{{ route('hospitals') }}" class="btn btn-primary">Check Details!</a>
+        </div>
+      </div>
+    </body>
+       <body class="bg-gray-100 p-6">
+      <div id="app" class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h1 class="text-lg font-semibold">Vaccine Information</h1>
+            <a href="{{ route('vaccine') }}" class="btn btn-primary">Check Details!</a>
+        </div>
+      </div>
+    </body>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script>

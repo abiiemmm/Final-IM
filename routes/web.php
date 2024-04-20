@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/information', [DashboardController::class, 'info'])->name('information');
 Route::get('/users', [DashboardController::class, 'users'])->name('users');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
 
 //route to database for immunization schedule
 Route::post('/schedules', [ScheduleController::class, 'store'])->name('storeSchedule');
@@ -38,5 +39,11 @@ Route::post('/schedules', [ScheduleController::class, 'store'])->name('storeSche
 //route to success notification on adding schedule immunization and cek schedule
 Route::get('/success', [DashboardController::class, 'success'])->name('success');
 
+//route to get schedule time
 Route::get('/schedule', [ScheduleController::class, 'schedule'])->name('schedule');
-Route::get('/api/schedules', [ScheduleController::class, 'index']);
+
+//routing to hospitals available
+Route::get('/hospitals', [ScheduleController::class, 'hospitals'])->name('hospitals');
+
+//routing to vaccination information
+Route::get('/vaccine', [ScheduleController::class, 'vaccine'])->name('vaccine');
