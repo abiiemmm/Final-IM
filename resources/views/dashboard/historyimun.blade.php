@@ -15,14 +15,16 @@
         <thead class="bg-gray-50">
           <tr>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Deskripsi</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
           </tr>
         </thead>
          <tbody class="bg-white divide-y divide-gray-200">
           @foreach ($schedules as $schedule)
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->id }}</td>
+              <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->name }}</td>
               <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->schedule_date }}</td>
               <td class="px-6 py-4 whitespace-nowrap">{{ $schedule->schedule_title }}</td>
             </tr>

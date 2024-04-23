@@ -29,7 +29,6 @@ Route::middleware('auth')->group(function () {
 
 //Routing to Dashboard Controller
 Route::get('/information', [DashboardController::class, 'info'])->name('information');
-Route::get('/users', [DashboardController::class, 'users'])->name('users');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
 
@@ -47,3 +46,6 @@ Route::get('/hospitals', [ScheduleController::class, 'hospitals'])->name('hospit
 
 //routing to vaccination information
 Route::get('/vaccine', [ScheduleController::class, 'vaccine'])->name('vaccine');
+
+//routing to user information
+Route::get('/users', [ScheduleController::class, 'user'])->name('user');

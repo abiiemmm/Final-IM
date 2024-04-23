@@ -7,6 +7,7 @@
     <title>Vaccine Information</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.9.4/dist/full.css" rel="stylesheet">
+    @vite('resources/css/app.css')
 </head>
 
 <body class="bg-gray-100 p-6">
@@ -21,7 +22,6 @@
                     This immunization aims to provide immunity against tuberculosis (TB).
                     If the BCG vaccine is to be given to babies over 3 months of age,
                     It's a good idea to do a tuberculin test first. BCG may be given if the tuberculin results are negative.</p>
-                <a href="#" class="btn btn-primary">Detail</a>
             </div>
             <!-- Vaccine 2 -->
             <div class="bg-white rounded-lg shadow p-4">
@@ -29,7 +29,6 @@
                 <h2 class="text-lg font-semibold mb-2">MMR vaccine</h2>
                 <p class="text-gray-600 mb-4">The MMR vaccine contains vaccines that protect against three viral infections: measles, mumps and rubella. 
                     MMR vaccine is given as a series of two doses with the first dose at 12 to 15 months of age and the second at 4 to 6 years of age.</p>
-                <a href="#" class="btn btn-primary">Detail</a>
             </div>
             <!-- Vaccine 3 -->
             <div class="bg-white rounded-lg shadow p-4">
@@ -38,7 +37,6 @@
                 <p class="text-gray-600 mb-4">The hepatitis B vaccine is a mandatory type of vaccine for babies to prevent hepatitis B virus infection which causes liver disorders. 
                     The hepatitis B vaccine contains inactivated hepatitis B virus antigen (HBsAg). 
                     When it enters the body, the antigen will stimulate the immune system to produce antibodies that can fight the hepatitis B virus.</p>
-                <a href="#" class="btn btn-primary">Detail</a>
             </div>
         </div>
     </div>
