@@ -21,13 +21,17 @@ class AuthController
         Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'phone' => 'required',
+            'address' => 'required'
         ])->validate();
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'address' => $request->address
         ]);
 
         return redirect()->route('login');

@@ -18,4 +18,7 @@ class DashboardController
     public function aboutus () {
         return view ('dashboard/aboutus');
     }
+    public function doctor () {
+        return view ('dashboard/doctorlist');
+    }
 }

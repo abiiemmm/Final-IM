@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\DoctorController;
 
 Route::view('/', 'auth.login');
 //Routing to Auth Controller #1
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/information', [DashboardController::class, 'info'])->name('information');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/aboutus', [DashboardController::class, 'aboutus'])->name('aboutus');
+Route::get('/doctor', [DashboardController::class, 'doctor'])->name('doctor');
 
 //route to database for immunization schedule
 Route::post('/schedules', [ScheduleController::class, 'store'])->name('storeSchedule');
@@ -49,3 +51,6 @@ Route::get('/vaccine', [ScheduleController::class, 'vaccine'])->name('vaccine');
 
 //routing to user information
 Route::get('/users', [ScheduleController::class, 'user'])->name('user');
+
+//routing to doctor information
+Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
