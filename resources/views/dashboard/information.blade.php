@@ -41,6 +41,10 @@
             <input type="date" id="scheduleDate" name="schedule_date">
           </div>
           <div>
+            <label for="doctor">Pilih Dokter:</label>
+            <select id="doctor" v-model="selectedDoctor">
+            </select>
+        </div>
             <label for="scheduleTitle">Deskripsi:</label>
             <input type="text" id="scheduleTitle" name="schedule_title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-black rounded-md">
           </div>
@@ -91,6 +95,7 @@
       },
       mounted() {
         this.initCalendar();
+        this.fetchDoctors();
       },
       methods: {
         initCalendar() {
@@ -101,6 +106,16 @@
           });
           this.calendar.render();
         },
+        fetchDoctors() {
+      // Mengambil data dokter dari backend
+      axios.get('/get-doctors') // Sesuaikan dengan endpoint Anda
+        .then(response => {
+          this.doctors = response.data; // Menyimpan data dokter yang diterima dari backend
+        })
+        .catch(error => {
+          console.error('Error fetching doctors', error);
+        });
+      },
         openModal() {
           this.isModalOpen = true;
         },
@@ -108,10 +123,12 @@
           this.isModalOpen = false;
         },
         addSchedule() {
-          if (this.scheduleDate && this.scheduleTitle) {
+          if (this.scheduleDate && this.scheduleTitle && this.selectedDoctor) {
+            const selectedDoctor = this.doctors.find(doctor => doctor.id === this.selectedDoctor);
             this.events.push({
               title: this.scheduleTitle,
-              start: this.scheduleDate
+              start: this.scheduleDate,
+              doctor: selectedDoctor.name
             });
             this.calendar.removeAllEvents();
             this.calendar.addEvents(this.events);
@@ -119,6 +136,7 @@
             this.showNotification();
           }
         }
+      
       }
     });
   </script>
