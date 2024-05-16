@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     use HasFactory;
-        protected $fillable = ['schedule_date', 'schedule_title'];
+        protected $fillable = ['schedule_date', 'schedule_title', 'name', 'doctors', 'location', 'gender', 'age'];
         public $timestamps = false;
 
     // Atau jika Anda menggunakan $guarded:

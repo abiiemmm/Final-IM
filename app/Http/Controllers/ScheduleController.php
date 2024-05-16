@@ -20,15 +20,21 @@ class ScheduleController
         // Validasi permintaan
         $validatedData = $request->validate([
             'schedule_date' => 'required|date',
-            'schedule_title' => 'required|string|max:255',
             'name' => 'required|string|max:255',
+            'doctors' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'age' => 'required|string|max:255'
         ]);
 
         // Buat objek Schedule baru
         $schedule = new Schedule();
         $schedule->schedule_date = $validatedData['schedule_date'];
-        $schedule->schedule_title = $validatedData['schedule_title'];
         $schedule->name = $validatedData['name'];
+        $schedule->doctors = $validatedData['doctors'];
+        $schedule->location = $validatedData['location'];
+        $schedule->gender = $validatedData['gender'];
+        $schedule->age = $validatedData['age'];
 
         // Simpan data ke database
         $schedule->save();
@@ -101,13 +107,14 @@ class ScheduleController
         return view('dashboard/users', compact('user'));
     }
 
-    public function updateProfile(Request $request)
+    public function updateprofile(Request $request)
     {
         // Validasi permintaan
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255'
             // Tambahkan validasi sesuai kebutuhan untuk data lainnya
         ]);
 
@@ -115,10 +122,12 @@ class ScheduleController
         $user = User::find(auth()->id());
 
         // Update data user sesuai dengan data yang dikirimkan melalui permintaan
-        $user->update($validatedData);
-
-        // Kembalikan pengguna ke halaman profil dengan pesan sukses
-        return redirect()->route('profile')->with('success', 'Profile updated successfully');
+        $user->update([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'phone' => $validatedData['phone'],
+            'address' => $validatedData['address'],
+        ]);
     }
     
 }

@@ -14,8 +14,9 @@ class DoctorController
         return view('dashboard/doctorlist', compact('doctors'));
 
     }
-    public function getDoctors() {
-    $doctors = Doctor::all(); // Misalnya Doctor adalah model Anda
-    return response()->json($doctors);
+    public function getdoctors()
+    {
+        $doctors = Doctor::all();
+        return response()->json($doctors);
     }
 }

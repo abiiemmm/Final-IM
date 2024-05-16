@@ -219,7 +219,7 @@
                     <div class="flex flex-col justify-between p-4 leading-normal">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Percentage
                             Immunized</h5>
-                        <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">20 %
+                        <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">100 %
                         </h1>
                     </div>
                 </a>
@@ -238,10 +238,10 @@
         </div>
     </div>
 
+    <div class="p-4 sm:ml-64">
     <div class="p-4 rounded-lg mt-8 grid grid-cols-2 gap-4">
-
         {{-- Chart pertama --}}
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md p-4">
+        <div id="chart1" class="flex bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md p-4 sm:mr-4">
             <div id="chart" style="width: 100%; height: 100%;"></div>
         </div>
 
@@ -250,6 +250,7 @@
             <div id="chart2" style="width: 100%; height: 100%;"></div>
         </div>
     </div>
+</div>
 </div>
 
 </body>
@@ -261,7 +262,8 @@
     var options = {
         chart: {
             type: 'line',
-            height: 350
+            height: 350,
+             width: '100%'
         },
         series: [{
             name: 'Child',
@@ -310,27 +312,6 @@
     var chart = new ApexCharts(document.querySelector("#column-chart"), options);
     chart.render();
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
-    var options = {
-        chart: {
-            type: 'area',
-            height: 350
-        },
-        series: [{
-            name: 'Sales',
-            data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
-        }],
-        xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
-        }
-    }
-
-    var areaChart = new ApexCharts(document.querySelector("#area-chart"), options);
-    areaChart.render();
-</script>
-
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

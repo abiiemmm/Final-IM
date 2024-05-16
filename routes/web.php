@@ -54,3 +54,6 @@ Route::get('/users', [ScheduleController::class, 'user'])->name('user');
 
 //routing to doctor information
 Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
+
+//routes to user update data
+Route::post('/users', [ScheduleController::class, 'updateprofile'])->name('updateprofile');
